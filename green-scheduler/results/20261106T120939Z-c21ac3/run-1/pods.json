@@ -1,0 +1,1677 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-06T12:09:39Z",
+        "generateName": "cpu-000-",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "db68db04-3a02-4b33-95d2-2ed44a9b356f",
+          "batch.kubernetes.io/job-name": "cpu-000",
+          "controller-uid": "db68db04-3a02-4b33-95d2-2ed44a9b356f",
+          "job-name": "cpu-000"
+        },
+        "name": "cpu-000-q7zs7",
+        "namespace": "green-20261106t120939z-c21ac3-1",
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Job",
+            "name": "cpu-000",
+            "uid": "db68db04-3a02-4b33-95d2-2ed44a9b356f"
+          }
+        ],
+        "resourceVersion": "1541",
+        "uid": "25ed593b-5f5a-4612-a161-79454cc057a4"
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/bench/cpu_benchmark.py",
+              "--limit",
+              "300000",
+              "--repeats",
+              "30"
+            ],
+            "image": "python:3.12.8-slim",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "cpu",
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-4j7j8",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "green-worker",
+        "nodeSelector": {
+          "benchmark": "true"
+        },
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "benchmark-code"
+            },
+            "name": "code"
+          },
+          {
+            "name": "kube-api-access-4j7j8",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "1",
+          "memory": "128Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:51Z",
+            "message": "pod sandbox is not ready",
+            "observedGeneration": 1,
+            "reason": "PodSandboxNotReady",
+            "status": "False",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "1",
+              "memory": "128Mi"
+            },
+            "containerID": "containerd://ed67c463675f9bc0576eb716cba4eb9c9594ad1d08f50bec5118064f3b6bbc8b",
+            "image": "docker.io/library/python:3.12.8-slim",
+            "imageID": "docker.io/library/python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "lastState": {},
+            "name": "cpu",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://ed67c463675f9bc0576eb716cba4eb9c9594ad1d08f50bec5118064f3b6bbc8b",
+                "exitCode": 0,
+                "finishedAt": "2026-11-06T12:09:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-06T12:09:39Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 0,
+                "supplementalGroups": [
+                  0
+                ],
+                "uid": 0
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-4j7j8",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.3",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.3"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Succeeded",
+        "podIP": "10.244.3.3",
+        "podIPs": [
+          {
+            "ip": "10.244.3.3"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "cpu": "975m",
+            "memory": "128Mi"
+          }
+        },
+        "startTime": "2026-11-06T12:09:39Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-06T12:09:39Z",
+        "generateName": "cpu-001-",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "ad9552a3-cdcd-4de3-a632-6a2db1c30166",
+          "batch.kubernetes.io/job-name": "cpu-001",
+          "controller-uid": "ad9552a3-cdcd-4de3-a632-6a2db1c30166",
+          "job-name": "cpu-001"
+        },
+        "name": "cpu-001-9k4dc",
+        "namespace": "green-20261106t120939z-c21ac3-1",
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Job",
+            "name": "cpu-001",
+            "uid": "ad9552a3-cdcd-4de3-a632-6a2db1c30166"
+          }
+        ],
+        "resourceVersion": "1530",
+        "uid": "d987aa87-6116-4a9a-83a6-afec34bcacb9"
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/bench/cpu_benchmark.py",
+              "--limit",
+              "300000",
+              "--repeats",
+              "30"
+            ],
+            "image": "python:3.12.8-slim",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "cpu",
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-ct69l",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "green-worker3",
+        "nodeSelector": {
+          "benchmark": "true"
+        },
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "benchmark-code"
+            },
+            "name": "code"
+          },
+          {
+            "name": "kube-api-access-ct69l",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "1",
+          "memory": "128Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:51Z",
+            "message": "pod sandbox is not ready",
+            "observedGeneration": 1,
+            "reason": "PodSandboxNotReady",
+            "status": "False",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "1",
+              "memory": "128Mi"
+            },
+            "containerID": "containerd://e7e0e673b79dfebbc0f11e5dc6d0ea72da8cfc4660823014f482fc2daf7cecc1",
+            "image": "docker.io/library/python:3.12.8-slim",
+            "imageID": "docker.io/library/python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "lastState": {},
+            "name": "cpu",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://e7e0e673b79dfebbc0f11e5dc6d0ea72da8cfc4660823014f482fc2daf7cecc1",
+                "exitCode": 0,
+                "finishedAt": "2026-11-06T12:09:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-06T12:09:39Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 0,
+                "supplementalGroups": [
+                  0
+                ],
+                "uid": 0
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-ct69l",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Succeeded",
+        "podIP": "10.244.1.3",
+        "podIPs": [
+          {
+            "ip": "10.244.1.3"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "cpu": "975m",
+            "memory": "128Mi"
+          }
+        },
+        "startTime": "2026-11-06T12:09:39Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-06T12:09:39Z",
+        "generateName": "cpu-002-",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "3d86e3cd-7535-4320-9153-656234e395b9",
+          "batch.kubernetes.io/job-name": "cpu-002",
+          "controller-uid": "3d86e3cd-7535-4320-9153-656234e395b9",
+          "job-name": "cpu-002"
+        },
+        "name": "cpu-002-rx5rs",
+        "namespace": "green-20261106t120939z-c21ac3-1",
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Job",
+            "name": "cpu-002",
+            "uid": "3d86e3cd-7535-4320-9153-656234e395b9"
+          }
+        ],
+        "resourceVersion": "1542",
+        "uid": "cd061125-e18b-46ee-9738-f1e1775e7491"
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/bench/cpu_benchmark.py",
+              "--limit",
+              "300000",
+              "--repeats",
+              "30"
+            ],
+            "image": "python:3.12.8-slim",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "cpu",
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-jzh6k",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "green-worker2",
+        "nodeSelector": {
+          "benchmark": "true"
+        },
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "benchmark-code"
+            },
+            "name": "code"
+          },
+          {
+            "name": "kube-api-access-jzh6k",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "1",
+          "memory": "128Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:51Z",
+            "message": "pod sandbox is not ready",
+            "observedGeneration": 1,
+            "reason": "PodSandboxNotReady",
+            "status": "False",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "1",
+              "memory": "128Mi"
+            },
+            "containerID": "containerd://f44e26ff58827728ceb7a63fb72c32963ee860b3a9dc39cab88093220e16e9c1",
+            "image": "docker.io/library/python:3.12.8-slim",
+            "imageID": "docker.io/library/python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "lastState": {},
+            "name": "cpu",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://f44e26ff58827728ceb7a63fb72c32963ee860b3a9dc39cab88093220e16e9c1",
+                "exitCode": 0,
+                "finishedAt": "2026-11-06T12:09:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-06T12:09:39Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 0,
+                "supplementalGroups": [
+                  0
+                ],
+                "uid": 0
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-jzh6k",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.4",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.4"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Succeeded",
+        "podIP": "10.244.4.3",
+        "podIPs": [
+          {
+            "ip": "10.244.4.3"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "cpu": "975m",
+            "memory": "128Mi"
+          }
+        },
+        "startTime": "2026-11-06T12:09:39Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-06T12:09:39Z",
+        "generateName": "cpu-003-",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "212a0bdb-79ac-4a17-be85-6e57bebde477",
+          "batch.kubernetes.io/job-name": "cpu-003",
+          "controller-uid": "212a0bdb-79ac-4a17-be85-6e57bebde477",
+          "job-name": "cpu-003"
+        },
+        "name": "cpu-003-zvjdd",
+        "namespace": "green-20261106t120939z-c21ac3-1",
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Job",
+            "name": "cpu-003",
+            "uid": "212a0bdb-79ac-4a17-be85-6e57bebde477"
+          }
+        ],
+        "resourceVersion": "1529",
+        "uid": "9eab208f-48e7-458d-9e1d-a88e45ab3154"
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/bench/cpu_benchmark.py",
+              "--limit",
+              "300000",
+              "--repeats",
+              "30"
+            ],
+            "image": "python:3.12.8-slim",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "cpu",
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-nclmm",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "green-worker3",
+        "nodeSelector": {
+          "benchmark": "true"
+        },
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "benchmark-code"
+            },
+            "name": "code"
+          },
+          {
+            "name": "kube-api-access-nclmm",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "1",
+          "memory": "128Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:51Z",
+            "message": "pod sandbox is not ready",
+            "observedGeneration": 1,
+            "reason": "PodSandboxNotReady",
+            "status": "False",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "1",
+              "memory": "128Mi"
+            },
+            "containerID": "containerd://ce27c6d785caf5c6375a1d0732baa40144435d36e310c3d0e9795b48a0baa9f0",
+            "image": "docker.io/library/python:3.12.8-slim",
+            "imageID": "docker.io/library/python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "lastState": {},
+            "name": "cpu",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://ce27c6d785caf5c6375a1d0732baa40144435d36e310c3d0e9795b48a0baa9f0",
+                "exitCode": 0,
+                "finishedAt": "2026-11-06T12:09:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-06T12:09:39Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 0,
+                "supplementalGroups": [
+                  0
+                ],
+                "uid": 0
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-nclmm",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.2",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.2"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Succeeded",
+        "podIP": "10.244.1.4",
+        "podIPs": [
+          {
+            "ip": "10.244.1.4"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "cpu": "975m",
+            "memory": "128Mi"
+          }
+        },
+        "startTime": "2026-11-06T12:09:39Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-06T12:09:39Z",
+        "generateName": "cpu-004-",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "d6adb142-34a9-4dd9-bc88-069cbd87075d",
+          "batch.kubernetes.io/job-name": "cpu-004",
+          "controller-uid": "d6adb142-34a9-4dd9-bc88-069cbd87075d",
+          "job-name": "cpu-004"
+        },
+        "name": "cpu-004-fvskl",
+        "namespace": "green-20261106t120939z-c21ac3-1",
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Job",
+            "name": "cpu-004",
+            "uid": "d6adb142-34a9-4dd9-bc88-069cbd87075d"
+          }
+        ],
+        "resourceVersion": "1544",
+        "uid": "6a0b06b5-999b-4320-a6ea-f9287a3dcc9b"
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/bench/cpu_benchmark.py",
+              "--limit",
+              "300000",
+              "--repeats",
+              "30"
+            ],
+            "image": "python:3.12.8-slim",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "cpu",
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-7p59h",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "green-worker",
+        "nodeSelector": {
+          "benchmark": "true"
+        },
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "benchmark-code"
+            },
+            "name": "code"
+          },
+          {
+            "name": "kube-api-access-7p59h",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "1",
+          "memory": "128Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:51Z",
+            "message": "pod sandbox is not ready",
+            "observedGeneration": 1,
+            "reason": "PodSandboxNotReady",
+            "status": "False",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "1",
+              "memory": "128Mi"
+            },
+            "containerID": "containerd://0e8abf0b039bf9f7f91aa3befc519ccfb774073f5204de141279675d343eacfa",
+            "image": "docker.io/library/python:3.12.8-slim",
+            "imageID": "docker.io/library/python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "lastState": {},
+            "name": "cpu",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://0e8abf0b039bf9f7f91aa3befc519ccfb774073f5204de141279675d343eacfa",
+                "exitCode": 0,
+                "finishedAt": "2026-11-06T12:09:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-06T12:09:39Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 0,
+                "supplementalGroups": [
+                  0
+                ],
+                "uid": 0
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-7p59h",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.3",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.3"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Succeeded",
+        "podIP": "10.244.3.4",
+        "podIPs": [
+          {
+            "ip": "10.244.3.4"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "cpu": "975m",
+            "memory": "128Mi"
+          }
+        },
+        "startTime": "2026-11-06T12:09:39Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-06T12:09:39Z",
+        "generateName": "cpu-005-",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "a1ce0416-07e7-4595-99d3-e97c47e96091",
+          "batch.kubernetes.io/job-name": "cpu-005",
+          "controller-uid": "a1ce0416-07e7-4595-99d3-e97c47e96091",
+          "job-name": "cpu-005"
+        },
+        "name": "cpu-005-977hd",
+        "namespace": "green-20261106t120939z-c21ac3-1",
+        "ownerReferences": [
+          {
+            "apiVersion": "batch/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "Job",
+            "name": "cpu-005",
+            "uid": "a1ce0416-07e7-4595-99d3-e97c47e96091"
+          }
+        ],
+        "resourceVersion": "1543",
+        "uid": "37f517e1-2d73-49eb-a4ad-947658284717"
+      },
+      "spec": {
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/bench/cpu_benchmark.py",
+              "--limit",
+              "300000",
+              "--repeats",
+              "30"
+            ],
+            "image": "python:3.12.8-slim",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "cpu",
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-fgn7m",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "green-worker2",
+        "nodeSelector": {
+          "benchmark": "true"
+        },
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "benchmark-code"
+            },
+            "name": "code"
+          },
+          {
+            "name": "kube-api-access-fgn7m",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "1",
+          "memory": "128Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:51Z",
+            "message": "pod sandbox is not ready",
+            "observedGeneration": 1,
+            "reason": "PodSandboxNotReady",
+            "status": "False",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:50Z",
+            "observedGeneration": 1,
+            "reason": "PodCompleted",
+            "status": "False",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-06T12:09:39Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "1",
+              "memory": "128Mi"
+            },
+            "containerID": "containerd://faa252174c2a024a79b28c61797f41dba3b8a3238edd1ddfd144a2a3349c29bc",
+            "image": "docker.io/library/python:3.12.8-slim",
+            "imageID": "docker.io/library/python@sha256:2199a62885a12290dc9c5be3ca0681d367576ab7bf037da120e564723292a2f0",
+            "lastState": {},
+            "name": "cpu",
+            "ready": false,
+            "resources": {
+              "limits": {
+                "cpu": "1",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "1",
+                "memory": "128Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://faa252174c2a024a79b28c61797f41dba3b8a3238edd1ddfd144a2a3349c29bc",
+                "exitCode": 0,
+                "finishedAt": "2026-11-06T12:09:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-06T12:09:39Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 0,
+                "supplementalGroups": [
+                  0
+                ],
+                "uid": 0
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/bench",
+                "name": "code",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-fgn7m",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "172.18.0.4",
+        "hostIPs": [
+          {
+            "ip": "172.18.0.4"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Succeeded",
+        "podIP": "10.244.4.4",
+        "podIPs": [
+          {
+            "ip": "10.244.4.4"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "cpu": "975m",
+            "memory": "128Mi"
+          }
+        },
+        "startTime": "2026-11-06T12:09:39Z"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

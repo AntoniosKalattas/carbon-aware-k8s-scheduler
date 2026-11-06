@@ -1,0 +1,402 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "cpu-000",
+        "namespace": "green-20261106t121056z-cfc0a9-5"
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 600,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "containers": [
+              {
+                "name": "cpu",
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "code",
+                    "mountPath": "/bench",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "code",
+                "configMap": {
+                  "name": "benchmark-code"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "cpu-001",
+        "namespace": "green-20261106t121056z-cfc0a9-5"
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 600,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "containers": [
+              {
+                "name": "cpu",
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "code",
+                    "mountPath": "/bench",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "code",
+                "configMap": {
+                  "name": "benchmark-code"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "cpu-002",
+        "namespace": "green-20261106t121056z-cfc0a9-5"
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 600,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "containers": [
+              {
+                "name": "cpu",
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "code",
+                    "mountPath": "/bench",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "code",
+                "configMap": {
+                  "name": "benchmark-code"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "cpu-003",
+        "namespace": "green-20261106t121056z-cfc0a9-5"
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 600,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "containers": [
+              {
+                "name": "cpu",
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "code",
+                    "mountPath": "/bench",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "code",
+                "configMap": {
+                  "name": "benchmark-code"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "cpu-004",
+        "namespace": "green-20261106t121056z-cfc0a9-5"
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 600,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "containers": [
+              {
+                "name": "cpu",
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "code",
+                    "mountPath": "/bench",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "code",
+                "configMap": {
+                  "name": "benchmark-code"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "cpu-005",
+        "namespace": "green-20261106t121056z-cfc0a9-5"
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 600,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark"
+            }
+          },
+          "spec": {
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "containers": [
+              {
+                "name": "cpu",
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "code",
+                    "mountPath": "/bench",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "code",
+                "configMap": {
+                  "name": "benchmark-code"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

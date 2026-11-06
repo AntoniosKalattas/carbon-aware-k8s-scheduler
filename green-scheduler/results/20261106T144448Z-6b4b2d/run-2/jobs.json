@@ -1,0 +1,771 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"cpu-000\",\"namespace\":\"green-20261106t144448z-6b4b2d-2\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"cpu-benchmark\"}},\"spec\":{\"containers\":[{\"command\":[\"python\",\"/bench/cpu_benchmark.py\",\"--limit\",\"300000\",\"--repeats\",\"30\"],\"image\":\"python:3.12.8-slim\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"cpu\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"128Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/bench\",\"name\":\"code\",\"readOnly\":true}]}],\"nodeSelector\":{\"benchmark\":\"true\"},\"restartPolicy\":\"Never\",\"schedulerName\":\"default-scheduler\",\"volumes\":[{\"configMap\":{\"name\":\"benchmark-code\"},\"name\":\"code\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-06T14:45:04Z",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "fd94cd80-7753-41a8-937d-b6fca8278bef",
+          "batch.kubernetes.io/job-name": "cpu-000",
+          "controller-uid": "fd94cd80-7753-41a8-937d-b6fca8278bef",
+          "job-name": "cpu-000"
+        },
+        "name": "cpu-000",
+        "namespace": "green-20261106t144448z-6b4b2d-2",
+        "resourceVersion": "8911",
+        "uid": "fd94cd80-7753-41a8-937d-b6fca8278bef"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "fd94cd80-7753-41a8-937d-b6fca8278bef"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark",
+              "batch.kubernetes.io/controller-uid": "fd94cd80-7753-41a8-937d-b6fca8278bef",
+              "batch.kubernetes.io/job-name": "cpu-000",
+              "controller-uid": "fd94cd80-7753-41a8-937d-b6fca8278bef",
+              "job-name": "cpu-000"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "cpu",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/bench",
+                    "name": "code",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "benchmark-code"
+                },
+                "name": "code"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-06T14:45:17Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-06T14:45:17Z",
+            "lastTransitionTime": "2026-11-06T14:45:17Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-06T14:45:17Z",
+            "lastTransitionTime": "2026-11-06T14:45:17Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-06T14:45:04Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"cpu-001\",\"namespace\":\"green-20261106t144448z-6b4b2d-2\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"cpu-benchmark\"}},\"spec\":{\"containers\":[{\"command\":[\"python\",\"/bench/cpu_benchmark.py\",\"--limit\",\"300000\",\"--repeats\",\"30\"],\"image\":\"python:3.12.8-slim\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"cpu\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"128Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/bench\",\"name\":\"code\",\"readOnly\":true}]}],\"nodeSelector\":{\"benchmark\":\"true\"},\"restartPolicy\":\"Never\",\"schedulerName\":\"default-scheduler\",\"volumes\":[{\"configMap\":{\"name\":\"benchmark-code\"},\"name\":\"code\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-06T14:45:04Z",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "f7ecd7d3-785d-4b80-92bb-b57564c8690d",
+          "batch.kubernetes.io/job-name": "cpu-001",
+          "controller-uid": "f7ecd7d3-785d-4b80-92bb-b57564c8690d",
+          "job-name": "cpu-001"
+        },
+        "name": "cpu-001",
+        "namespace": "green-20261106t144448z-6b4b2d-2",
+        "resourceVersion": "8923",
+        "uid": "f7ecd7d3-785d-4b80-92bb-b57564c8690d"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "f7ecd7d3-785d-4b80-92bb-b57564c8690d"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark",
+              "batch.kubernetes.io/controller-uid": "f7ecd7d3-785d-4b80-92bb-b57564c8690d",
+              "batch.kubernetes.io/job-name": "cpu-001",
+              "controller-uid": "f7ecd7d3-785d-4b80-92bb-b57564c8690d",
+              "job-name": "cpu-001"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "cpu",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/bench",
+                    "name": "code",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "benchmark-code"
+                },
+                "name": "code"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-06T14:45:18Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-06T14:45:18Z",
+            "lastTransitionTime": "2026-11-06T14:45:18Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-06T14:45:18Z",
+            "lastTransitionTime": "2026-11-06T14:45:18Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-06T14:45:04Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"cpu-002\",\"namespace\":\"green-20261106t144448z-6b4b2d-2\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"cpu-benchmark\"}},\"spec\":{\"containers\":[{\"command\":[\"python\",\"/bench/cpu_benchmark.py\",\"--limit\",\"300000\",\"--repeats\",\"30\"],\"image\":\"python:3.12.8-slim\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"cpu\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"128Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/bench\",\"name\":\"code\",\"readOnly\":true}]}],\"nodeSelector\":{\"benchmark\":\"true\"},\"restartPolicy\":\"Never\",\"schedulerName\":\"default-scheduler\",\"volumes\":[{\"configMap\":{\"name\":\"benchmark-code\"},\"name\":\"code\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-06T14:45:04Z",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "a2f4c66d-46a4-4e57-8c32-3a565f65654d",
+          "batch.kubernetes.io/job-name": "cpu-002",
+          "controller-uid": "a2f4c66d-46a4-4e57-8c32-3a565f65654d",
+          "job-name": "cpu-002"
+        },
+        "name": "cpu-002",
+        "namespace": "green-20261106t144448z-6b4b2d-2",
+        "resourceVersion": "8910",
+        "uid": "a2f4c66d-46a4-4e57-8c32-3a565f65654d"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "a2f4c66d-46a4-4e57-8c32-3a565f65654d"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark",
+              "batch.kubernetes.io/controller-uid": "a2f4c66d-46a4-4e57-8c32-3a565f65654d",
+              "batch.kubernetes.io/job-name": "cpu-002",
+              "controller-uid": "a2f4c66d-46a4-4e57-8c32-3a565f65654d",
+              "job-name": "cpu-002"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "cpu",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/bench",
+                    "name": "code",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "benchmark-code"
+                },
+                "name": "code"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-06T14:45:17Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-06T14:45:17Z",
+            "lastTransitionTime": "2026-11-06T14:45:17Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-06T14:45:17Z",
+            "lastTransitionTime": "2026-11-06T14:45:17Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-06T14:45:04Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"cpu-003\",\"namespace\":\"green-20261106t144448z-6b4b2d-2\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"cpu-benchmark\"}},\"spec\":{\"containers\":[{\"command\":[\"python\",\"/bench/cpu_benchmark.py\",\"--limit\",\"300000\",\"--repeats\",\"30\"],\"image\":\"python:3.12.8-slim\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"cpu\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"128Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/bench\",\"name\":\"code\",\"readOnly\":true}]}],\"nodeSelector\":{\"benchmark\":\"true\"},\"restartPolicy\":\"Never\",\"schedulerName\":\"default-scheduler\",\"volumes\":[{\"configMap\":{\"name\":\"benchmark-code\"},\"name\":\"code\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-06T14:45:04Z",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "0f923326-f357-4f4a-b1a5-f20f094042c1",
+          "batch.kubernetes.io/job-name": "cpu-003",
+          "controller-uid": "0f923326-f357-4f4a-b1a5-f20f094042c1",
+          "job-name": "cpu-003"
+        },
+        "name": "cpu-003",
+        "namespace": "green-20261106t144448z-6b4b2d-2",
+        "resourceVersion": "8929",
+        "uid": "0f923326-f357-4f4a-b1a5-f20f094042c1"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "0f923326-f357-4f4a-b1a5-f20f094042c1"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark",
+              "batch.kubernetes.io/controller-uid": "0f923326-f357-4f4a-b1a5-f20f094042c1",
+              "batch.kubernetes.io/job-name": "cpu-003",
+              "controller-uid": "0f923326-f357-4f4a-b1a5-f20f094042c1",
+              "job-name": "cpu-003"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "cpu",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/bench",
+                    "name": "code",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "benchmark-code"
+                },
+                "name": "code"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-06T14:45:18Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-06T14:45:18Z",
+            "lastTransitionTime": "2026-11-06T14:45:18Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-06T14:45:18Z",
+            "lastTransitionTime": "2026-11-06T14:45:18Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-06T14:45:04Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"cpu-004\",\"namespace\":\"green-20261106t144448z-6b4b2d-2\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"cpu-benchmark\"}},\"spec\":{\"containers\":[{\"command\":[\"python\",\"/bench/cpu_benchmark.py\",\"--limit\",\"300000\",\"--repeats\",\"30\"],\"image\":\"python:3.12.8-slim\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"cpu\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"128Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/bench\",\"name\":\"code\",\"readOnly\":true}]}],\"nodeSelector\":{\"benchmark\":\"true\"},\"restartPolicy\":\"Never\",\"schedulerName\":\"default-scheduler\",\"volumes\":[{\"configMap\":{\"name\":\"benchmark-code\"},\"name\":\"code\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-06T14:45:04Z",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "cae35a69-4e00-4a8f-9f25-f3e9657238a0",
+          "batch.kubernetes.io/job-name": "cpu-004",
+          "controller-uid": "cae35a69-4e00-4a8f-9f25-f3e9657238a0",
+          "job-name": "cpu-004"
+        },
+        "name": "cpu-004",
+        "namespace": "green-20261106t144448z-6b4b2d-2",
+        "resourceVersion": "8922",
+        "uid": "cae35a69-4e00-4a8f-9f25-f3e9657238a0"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "cae35a69-4e00-4a8f-9f25-f3e9657238a0"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark",
+              "batch.kubernetes.io/controller-uid": "cae35a69-4e00-4a8f-9f25-f3e9657238a0",
+              "batch.kubernetes.io/job-name": "cpu-004",
+              "controller-uid": "cae35a69-4e00-4a8f-9f25-f3e9657238a0",
+              "job-name": "cpu-004"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "cpu",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/bench",
+                    "name": "code",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "benchmark-code"
+                },
+                "name": "code"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-06T14:45:18Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-06T14:45:18Z",
+            "lastTransitionTime": "2026-11-06T14:45:18Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-06T14:45:18Z",
+            "lastTransitionTime": "2026-11-06T14:45:18Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-06T14:45:04Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"batch/v1\",\"kind\":\"Job\",\"metadata\":{\"annotations\":{},\"name\":\"cpu-005\",\"namespace\":\"green-20261106t144448z-6b4b2d-2\"},\"spec\":{\"activeDeadlineSeconds\":600,\"backoffLimit\":0,\"template\":{\"metadata\":{\"labels\":{\"app\":\"cpu-benchmark\"}},\"spec\":{\"containers\":[{\"command\":[\"python\",\"/bench/cpu_benchmark.py\",\"--limit\",\"300000\",\"--repeats\",\"30\"],\"image\":\"python:3.12.8-slim\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"cpu\",\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"1\",\"memory\":\"128Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/bench\",\"name\":\"code\",\"readOnly\":true}]}],\"nodeSelector\":{\"benchmark\":\"true\"},\"restartPolicy\":\"Never\",\"schedulerName\":\"default-scheduler\",\"volumes\":[{\"configMap\":{\"name\":\"benchmark-code\"},\"name\":\"code\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-11-06T14:45:04Z",
+        "generation": 1,
+        "labels": {
+          "app": "cpu-benchmark",
+          "batch.kubernetes.io/controller-uid": "01e56b24-ddab-4fe1-9e9b-bfb7abbde90b",
+          "batch.kubernetes.io/job-name": "cpu-005",
+          "controller-uid": "01e56b24-ddab-4fe1-9e9b-bfb7abbde90b",
+          "job-name": "cpu-005"
+        },
+        "name": "cpu-005",
+        "namespace": "green-20261106t144448z-6b4b2d-2",
+        "resourceVersion": "8912",
+        "uid": "01e56b24-ddab-4fe1-9e9b-bfb7abbde90b"
+      },
+      "spec": {
+        "activeDeadlineSeconds": 600,
+        "backoffLimit": 0,
+        "completionMode": "NonIndexed",
+        "completions": 1,
+        "manualSelector": false,
+        "parallelism": 1,
+        "podReplacementPolicy": "TerminatingOrFailed",
+        "selector": {
+          "matchLabels": {
+            "batch.kubernetes.io/controller-uid": "01e56b24-ddab-4fe1-9e9b-bfb7abbde90b"
+          }
+        },
+        "suspend": false,
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "cpu-benchmark",
+              "batch.kubernetes.io/controller-uid": "01e56b24-ddab-4fe1-9e9b-bfb7abbde90b",
+              "batch.kubernetes.io/job-name": "cpu-005",
+              "controller-uid": "01e56b24-ddab-4fe1-9e9b-bfb7abbde90b",
+              "job-name": "cpu-005"
+            }
+          },
+          "spec": {
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/bench/cpu_benchmark.py",
+                  "--limit",
+                  "300000",
+                  "--repeats",
+                  "30"
+                ],
+                "image": "python:3.12.8-slim",
+                "imagePullPolicy": "IfNotPresent",
+                "name": "cpu",
+                "resources": {
+                  "limits": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "1",
+                    "memory": "128Mi"
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/bench",
+                    "name": "code",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "nodeSelector": {
+              "benchmark": "true"
+            },
+            "restartPolicy": "Never",
+            "schedulerName": "default-scheduler",
+            "securityContext": {},
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "configMap": {
+                  "defaultMode": 420,
+                  "name": "benchmark-code"
+                },
+                "name": "code"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "completionTime": "2026-11-06T14:45:17Z",
+        "conditions": [
+          {
+            "lastProbeTime": "2026-11-06T14:45:17Z",
+            "lastTransitionTime": "2026-11-06T14:45:17Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "SuccessCriteriaMet"
+          },
+          {
+            "lastProbeTime": "2026-11-06T14:45:17Z",
+            "lastTransitionTime": "2026-11-06T14:45:17Z",
+            "message": "Reached expected number of succeeded pods",
+            "reason": "CompletionsReached",
+            "status": "True",
+            "type": "Complete"
+          }
+        ],
+        "ready": 0,
+        "startTime": "2026-11-06T14:45:04Z",
+        "succeeded": 1,
+        "terminating": 0,
+        "uncountedTerminatedPods": {}
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}
