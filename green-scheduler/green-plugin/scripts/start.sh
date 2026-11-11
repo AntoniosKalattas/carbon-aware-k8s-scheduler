@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-if [[ "$(kubectl config current-context)" != "kind-green" ]]; then
-  echo 'Select the kind-green context before starting.' >&2
+context="${1:-kind-green}"
+if [[ "$context" != "kind-green" && "$context" != "kind-green-six" ]]; then
+  echo 'Use kind-green or kind-green-six.' >&2
+  exit 1
+fi
+if [[ "$(kubectl config current-context)" != "$context" ]]; then
+  echo "Select the $context context before starting." >&2
   exit 1
 fi
 mkdir -p .runtime

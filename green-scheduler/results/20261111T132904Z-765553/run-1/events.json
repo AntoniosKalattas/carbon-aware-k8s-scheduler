@@ -1,0 +1,1149 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-11T13:29:05.052934Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "cpu-000-cdrt5",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1047",
+                "uid": "2aa64b3c-d0de-4297-a88d-b3099a139aa7"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned green-20261111t132904z-765553-1/cpu-000-cdrt5 to green-six-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-000-cdrt5.18e700b2ef82e298",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1057",
+                "uid": "caf14ec4-74a6-41f9-8194-ec0c5f6c3bc5"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "green-scheduler",
+            "reportingInstance": "green-scheduler-Alexandross-MacBook-Pro.local",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-000-cdrt5",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1051",
+                "uid": "2aa64b3c-d0de-4297-a88d-b3099a139aa7"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container image \"python:3.12.8-slim\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-000-cdrt5.18e700b30b62643c",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1088",
+                "uid": "009d97e9-d748-4dbc-87f6-372baa7fe31b"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-000-cdrt5",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1051",
+                "uid": "2aa64b3c-d0de-4297-a88d-b3099a139aa7"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-000-cdrt5.18e700b30d8d8436",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1096",
+                "uid": "414caa97-c744-4743-8f3e-1a73e87cab6f"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-000-cdrt5",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1051",
+                "uid": "2aa64b3c-d0de-4297-a88d-b3099a139aa7"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-000-cdrt5.18e700b3117d700b",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1104",
+                "uid": "ffb866c1-e17e-47d3-8541-db4ee552f149"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-000",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1045",
+                "uid": "7538e36e-81d8-4d41-aefe-a5eba8299bce"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Created pod: cpu-000-cdrt5",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-000.18e700b2eef45138",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1052",
+                "uid": "6ed11dd6-55d1-48c0-a8dd-50103734d051"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:19Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-000",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1168",
+                "uid": "7538e36e-81d8-4d41-aefe-a5eba8299bce"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:19Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:19Z",
+                "name": "cpu-000.18e700b651743c19",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1175",
+                "uid": "f2357e43-5708-4a7c-97a7-09be452da672"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-11T13:29:05.055829Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "cpu-001-bhhsd",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1048",
+                "uid": "b4aa2024-5334-4737-ab15-dbdfc65f7daf"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned green-20261111t132904z-765553-1/cpu-001-bhhsd to green-six-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-001-bhhsd.18e700b2efaefba8",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1056",
+                "uid": "462fb693-2ced-4ebd-ad15-b1dc1d27bf80"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "green-scheduler",
+            "reportingInstance": "green-scheduler-Alexandross-MacBook-Pro.local",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-001-bhhsd",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1053",
+                "uid": "b4aa2024-5334-4737-ab15-dbdfc65f7daf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container image \"python:3.12.8-slim\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-001-bhhsd.18e700b30b848c60",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1090",
+                "uid": "0e6d9601-72ce-4a2c-b186-68ea081aef61"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-001-bhhsd",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1053",
+                "uid": "b4aa2024-5334-4737-ab15-dbdfc65f7daf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-001-bhhsd.18e700b30d2dd8ad",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1094",
+                "uid": "89ff210e-1aae-4f4a-a498-14dde46972d7"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-001-bhhsd",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1053",
+                "uid": "b4aa2024-5334-4737-ab15-dbdfc65f7daf"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-001-bhhsd.18e700b3117f3408",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1106",
+                "uid": "f4c86ad0-2fa6-4819-af16-4c924029c966"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-001",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1046",
+                "uid": "849549b8-bc33-4e8e-bb31-f67a15b5d142"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Created pod: cpu-001-bhhsd",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-001.18e700b2ef27399c",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1055",
+                "uid": "365144d6-47bd-446a-8578-8de92f9d5d0b"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:19Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-001",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1172",
+                "uid": "849549b8-bc33-4e8e-bb31-f67a15b5d142"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:19Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:19Z",
+                "name": "cpu-001.18e700b651c6c09c",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1179",
+                "uid": "a82ed4c1-8b2c-4ca7-888b-033dc825886c"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-11T13:29:05.074066Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "cpu-002-79x42",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1058",
+                "uid": "18ea8ccd-fc11-49dc-a5a0-a7e8846c9ec0"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned green-20261111t132904z-765553-1/cpu-002-79x42 to green-six-worker3",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-002-79x42.18e700b2f0c549c0",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1064",
+                "uid": "87393ab5-bdd8-487d-b420-f9f1cb154afe"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "green-scheduler",
+            "reportingInstance": "green-scheduler-Alexandross-MacBook-Pro.local",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-002-79x42",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1062",
+                "uid": "18ea8ccd-fc11-49dc-a5a0-a7e8846c9ec0"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container image \"python:3.12.8-slim\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-002-79x42.18e700b30c75f116",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1091",
+                "uid": "e8e19091-a601-49b0-a464-bb8d31b635ef"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-002-79x42",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1062",
+                "uid": "18ea8ccd-fc11-49dc-a5a0-a7e8846c9ec0"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-002-79x42.18e700b30e70c4cf",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1100",
+                "uid": "7d19cee4-119c-4844-9ff0-204e3e168752"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-002-79x42",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1062",
+                "uid": "18ea8ccd-fc11-49dc-a5a0-a7e8846c9ec0"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-002-79x42.18e700b312977167",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1109",
+                "uid": "85a886b3-f8d2-4a53-9317-df90130755bc"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker3",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker3"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-002",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1054",
+                "uid": "de784939-8163-4cf7-9f57-1668868b30fc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Created pod: cpu-002-79x42",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-002.18e700b2f03ca6ee",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1059",
+                "uid": "abf07baf-23c7-44a5-9929-3ceb499bba3d"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:19Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-002",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1169",
+                "uid": "de784939-8163-4cf7-9f57-1668868b30fc"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:19Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:19Z",
+                "name": "cpu-002.18e700b65180faf5",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1177",
+                "uid": "a011ed2d-42e0-4a7c-aa48-b63dee0d6000"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-11T13:29:05.086299Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "cpu-003-46c4n",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1066",
+                "uid": "db676bef-7af2-4982-9bd6-5de344ffaa74"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned green-20261111t132904z-765553-1/cpu-003-46c4n to green-six-worker2",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-003-46c4n.18e700b2f17ff6d0",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1072",
+                "uid": "4b013126-8caf-4361-95d7-98e2fff17112"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "green-scheduler",
+            "reportingInstance": "green-scheduler-Alexandross-MacBook-Pro.local",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-003-46c4n",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1070",
+                "uid": "db676bef-7af2-4982-9bd6-5de344ffaa74"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container image \"python:3.12.8-slim\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-003-46c4n.18e700b30d69e87d",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1095",
+                "uid": "df214031-302d-41cf-acaa-75d0867db149"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-003-46c4n",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1070",
+                "uid": "db676bef-7af2-4982-9bd6-5de344ffaa74"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-003-46c4n.18e700b310eec1ad",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1103",
+                "uid": "192f3b72-c7f9-4dc2-a004-aad975af3409"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-003-46c4n",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1070",
+                "uid": "db676bef-7af2-4982-9bd6-5de344ffaa74"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-003-46c4n.18e700b314fe3e13",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1112",
+                "uid": "d18b9c8d-2c97-4f45-9144-499bff7e5b5b"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-003",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1063",
+                "uid": "58797135-dc7a-4914-886c-93441f91030d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Created pod: cpu-003-46c4n",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-003.18e700b2f12af5c4",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1067",
+                "uid": "6b70816c-fb71-4a24-ab9f-d0cd4c4e7df7"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:19Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-003",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1180",
+                "uid": "58797135-dc7a-4914-886c-93441f91030d"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:19Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:19Z",
+                "name": "cpu-003.18e700b6648a33e1",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1185",
+                "uid": "adebbcb0-1aff-4038-8d42-179c485909ba"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-11T13:29:05.097030Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "cpu-004-sm86t",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1073",
+                "uid": "22bb4159-4ae3-45aa-8d13-83f22d391ae9"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned green-20261111t132904z-765553-1/cpu-004-sm86t to green-six-worker2",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-004-sm86t.18e700b2f223a910",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1079",
+                "uid": "f055157a-478e-4cdf-bfb1-f9cdf6d08b1a"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "green-scheduler",
+            "reportingInstance": "green-scheduler-Alexandross-MacBook-Pro.local",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-004-sm86t",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1075",
+                "uid": "22bb4159-4ae3-45aa-8d13-83f22d391ae9"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container image \"python:3.12.8-slim\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-004-sm86t.18e700b30e515207",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1101",
+                "uid": "e2f6026c-7bee-4276-8864-f4c1e600d47a"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-004-sm86t",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1075",
+                "uid": "22bb4159-4ae3-45aa-8d13-83f22d391ae9"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-004-sm86t.18e700b31190a369",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1105",
+                "uid": "eeb76526-dd20-4659-a896-3b9bb201cce5"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-004-sm86t",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1075",
+                "uid": "22bb4159-4ae3-45aa-8d13-83f22d391ae9"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-004-sm86t.18e700b315040568",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1113",
+                "uid": "78903e6c-a5de-4024-9d3a-627dbec27c8b"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-004",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1068",
+                "uid": "d7a5f151-7c74-4c6b-9f2f-aebea74500b1"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Created pod: cpu-004-sm86t",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-004.18e700b2f1cd8500",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1074",
+                "uid": "ea46e925-8fa4-4026-a84c-a6f3ca8b6576"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:19Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-004",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1182",
+                "uid": "d7a5f151-7c74-4c6b-9f2f-aebea74500b1"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:19Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:19Z",
+                "name": "cpu-004.18e700b664bf1b03",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1187",
+                "uid": "b0bcd797-4bfd-488b-aee3-4553c25ca1ab"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-11T13:29:05.108955Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "cpu-005-c4bg2",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1080",
+                "uid": "c90b2efd-28f5-40dc-8ec1-5eb7bba74e8f"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned green-20261111t132904z-765553-1/cpu-005-c4bg2 to green-six-worker2",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-005-c4bg2.18e700b2f2d99f18",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1085",
+                "uid": "5d24e537-d82c-494e-915e-5637549518fd"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "green-scheduler",
+            "reportingInstance": "green-scheduler-Alexandross-MacBook-Pro.local",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-005-c4bg2",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1082",
+                "uid": "c90b2efd-28f5-40dc-8ec1-5eb7bba74e8f"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container image \"python:3.12.8-slim\" already present on machine and can be accessed by the pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-005-c4bg2.18e700b30e31a90c",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1098",
+                "uid": "7d2a1285-580e-4a94-ba0f-481ee89b5f69"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-005-c4bg2",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1082",
+                "uid": "c90b2efd-28f5-40dc-8ec1-5eb7bba74e8f"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container created",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-005-c4bg2.18e700b312325dc1",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1108",
+                "uid": "52dcc1bc-1787-4268-a5c9-0b2fbb114c80"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{cpu}",
+                "kind": "Pod",
+                "name": "cpu-005-c4bg2",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1082",
+                "uid": "c90b2efd-28f5-40dc-8ec1-5eb7bba74e8f"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Container started",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-005-c4bg2.18e700b31652ab00",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1116",
+                "uid": "9cc4f8fb-c1f4-4e2b-b6c8-ec307574c8ec"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "green-six-worker2",
+            "source": {
+                "component": "kubelet",
+                "host": "green-six-worker2"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:05Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-005",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1077",
+                "uid": "37e6adb5-4de6-4e58-ada4-c68b3728afa8"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:05Z",
+            "message": "Created pod: cpu-005-c4bg2",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:05Z",
+                "name": "cpu-005.18e700b2f264e012",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1081",
+                "uid": "b1cc1aa3-b17a-4d25-8a10-ad0694b42995"
+            },
+            "reason": "SuccessfulCreate",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-11T13:29:19Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "cpu-005",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1188",
+                "uid": "37e6adb5-4de6-4e58-ada4-c68b3728afa8"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-11T13:29:19Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T13:29:19Z",
+                "name": "cpu-005.18e700b665610c88",
+                "namespace": "green-20261111t132904z-765553-1",
+                "resourceVersion": "1191",
+                "uid": "ef7343be-694a-4a8f-a82f-d319da259862"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}
