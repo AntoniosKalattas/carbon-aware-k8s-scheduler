@@ -37,10 +37,6 @@ class BaselineTests(unittest.TestCase):
         self.assertEqual(pod['containers'][0]['resources']['requests'],
                          pod['containers'][0]['resources']['limits'])
 
-
-if __name__ == '__main__':
-    unittest.main()
-
 class RunnerFlowTests(unittest.TestCase):
     def test_successful_batch_exports_and_cleans_up(self):
         import json
@@ -66,13 +62,30 @@ class RunnerFlowTests(unittest.TestCase):
             if 'logs' in args:
                 return '{"checksum": 1229}\n'
             return ''
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            with patch.object(runner, 'ROOT', root), patch.object(runner, 'kubectl', fake), patch('sys.argv', ['runner', '--context', 'kind-test', '--runs', '1', '--jobs', '1']):
-                runner.main()
-            outputs = list((root/'results').iterdir())
-            self.assertEqual(len(outputs), 1)
-            self.assertIn('Succeeded', (outputs[0]/'jobs.csv').read_text())
-            self.assertIn('successful_jobs_per_second', (outputs[0]/'batches.csv').read_text())
-            self.assertTrue((outputs[0]/'run-1'/'events.json').exists())
-            self.assertTrue(any(c[:2] == ('delete', 'namespace') for c in calls))
+        for with_snapshot in (False, True):
+            with self.subTest(with_snapshot=with_snapshot), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                argv = ['runner', '--context', 'kind-test', '--runs', '1', '--jobs', '1']
+                snapshot = {'schema_version': 1, 'regions': {'italy': {'carbon': 100}}}
+                if with_snapshot:
+                    source = root / 'carbon-inputs.json'
+                    source.write_text(json.dumps(snapshot))
+                    argv += ['--carbon-snapshot', str(source)]
+                with patch.object(runner, 'ROOT', root), patch.object(runner, 'kubectl', fake), patch('sys.argv', argv):
+                    runner.main()
+                outputs = list((root/'results').iterdir())
+                self.assertEqual(len(outputs), 1)
+                self.assertIn('Succeeded', (outputs[0]/'jobs.csv').read_text())
+                self.assertIn('successful_jobs_per_second', (outputs[0]/'batches.csv').read_text())
+                self.assertTrue((outputs[0]/'run-1'/'events.json').exists())
+                self.assertTrue(any(c[:2] == ('delete', 'namespace') for c in calls))
+                archived = outputs[0] / 'carbon-inputs.json'
+                self.assertEqual(archived.exists(), with_snapshot)
+                if with_snapshot:
+                    self.assertEqual(json.loads(archived.read_text()), snapshot)
+                    settings = json.loads((outputs[0]/'settings.json').read_text())
+                    self.assertEqual(settings['carbon_snapshot'], str(source))
+
+
+if __name__ == '__main__':
+    unittest.main()

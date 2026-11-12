@@ -26,7 +26,8 @@ can tie with the worst known region). Inputs are validated at startup.
 No HTTP requests occur during scoring. Default Filter plugins remain active;
 other Score plugins are disabled to isolate the experimental policy.
 
-The expected preferred node is Cyprus for energy-only, Italy for combined.
+With the fixed inputs, the expected preferred region is Cyprus for energy-only
+and Italy for combined. Trace replay changes the carbon values between conditions.
 Feasibility checks can force placement elsewhere. At this small load all six
 Pods may fit on the preferred worker. kind workers share physical CPUs and do
 not demonstrate genuine hardware/region differences. Concentration is expected
@@ -54,8 +55,9 @@ and pinned to v0.37.0. Go 1.26 or newer is required.
 bash scripts/start.sh
 ```
 
-This local development deployment uses the currently selected `kind-green`
-kubeconfig credentials. It writes a private copy into `.runtime/`, which is
+This local development deployment accepts `kind-green` (default) or
+`kind-green-six` as its first argument and requires that context to be selected.
+It uses that context's kubeconfig credentials. It writes a private copy into `.runtime/`, which is
 excluded from git. Never share that directory. The scheduler runs on the Mac,
 connecting to the existing kind API server; no custom container image is needed.
 Leader election is disabled for this single-instance local prototype. Only run
@@ -78,12 +80,28 @@ These first runs establish correctness, not a fair final performance comparison:
 repeat the default baseline while this local scheduler is also running, warm
 up all policies, alternate policy order, and keep logging settings identical.
 
+## Replay carbon inputs
+
+The startup script forwards optional carbon arguments to `configure.py`:
+
+```bash
+bash scripts/start.sh kind-green-six \
+  --trace ../carbon/demo-trace.csv --at 2026-11-11T01:00:00Z
+```
+
+The generator selects a timestamped CSV snapshot for this scheduler launch.
+The Go scoring interface and fixed energy profiles stay compatible. Restart
+between trace timestamps and archive the generated `carbon-inputs.json` with
+`run_baseline.py --carbon-snapshot green-plugin/.runtime/carbon-inputs.json`
+from the benchmark directory. See the [replay guide](../carbon/README.md) for
+schema, provenance, expected placement, and stale/missing fallback.
+
 ## Remaining validation
 
-Before claiming success, confirm the Go build and tests pass on the Mac, both
-profiles place Jobs as expected, and an infeasible preferred node is rejected
-by the existing filters. Later add measured/documented energy profiles, live
-carbon retrieval plus trace replay, explicit predicted-versus-observed energy
+The existing fixed-input runs verified placement, resource-feasibility fallback,
+and both eligible-worker configurations. New trace replay conditions still
+require cluster execution. Further work includes measured/documented energy
+profiles, verified live carbon retrieval, predicted-versus-observed energy
 accounting, and scheduler overhead instrumentation.
 
 Source API references:

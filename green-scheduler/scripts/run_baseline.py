@@ -72,9 +72,19 @@ def main():
     p.add_argument('--image', default='python:3.12.8-slim')
     p.add_argument('--context', required=True, help='Expected kubectl context; prevents wrong-cluster runs')
     p.add_argument('--keep', action='store_true', help='Keep namespaces after exporting results')
+    p.add_argument('--carbon-snapshot', type=Path,
+                   help='Archive the carbon-inputs.json generated for the running scheduler')
     args = p.parse_args()
     if min(args.runs, args.jobs, args.repeats, args.timeout, args.cpu) < 1 or args.limit < 2:
         p.error('positive counts required; limit >= 2')
+    carbon_inputs = None
+    if args.carbon_snapshot:
+        try:
+            carbon_inputs = json.loads(args.carbon_snapshot.read_text())
+            if carbon_inputs.get('schema_version') != 1 or not isinstance(carbon_inputs.get('regions'), dict):
+                p.error('carbon snapshot must be a generated carbon-inputs.json')
+        except (OSError, ValueError, AttributeError) as error:
+            p.error(f'invalid carbon snapshot: {error}')
     context = kubectl('config', 'current-context').strip()
     if context != args.context:
         p.error(f'current context is {context!r}, expected {args.context!r}')
@@ -91,7 +101,9 @@ def main():
     session = dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')+'-'+uuid.uuid4().hex[:6]
     out = ROOT / 'results' / session
     out.mkdir(parents=True)
-    (out/'settings.json').write_text(json.dumps(vars(args), indent=2))
+    (out/'settings.json').write_text(json.dumps(vars(args), indent=2, default=str))
+    if carbon_inputs is not None:
+        (out/'carbon-inputs.json').write_text(json.dumps(carbon_inputs, indent=2))
     (out/'nodes.json').write_text(json.dumps(nodes, indent=2))
     rows, batches = [], []
     failed = False
